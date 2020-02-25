@@ -1,0 +1,164 @@
+{
+"AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "An example of a CloudFormation template that could be used to create multiple IAM roles. It includes an example of attached managed policy, trust relationships, and the usage the parameters.",
+    "Parameters": {
+        "FirstRoleName": {
+            "Type": "String",
+            "Default": "Role_Name1"
+        },
+        "SecondRoleName": {
+            "Type":"String",
+            "Default": "Role_Name2"
+        },
+        "ThirdRoleName": {
+            "Type":"String",
+            "Default": "Role_Name3"
+        }
+    },
+    "Resources": {
+        "firstRole": {
+           "Type": "AWS::IAM::Role",
+           "DeletionPolicy": "Retain",
+           "Properties": {
+              "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                  {
+                    "Effect": "Allow",
+                    "Principal": {
+                      "AWS": "arn:aws:iam::XXXXXXXXX:root"
+                    },
+                    "Action": "sts:AssumeRole"
+                  },
+                  {
+                    "Effect": "Allow",
+                    "Principal": {
+                      "AWS": "arn:aws:iam::XXXXXXXXX:root"
+                    },
+                    "Action": "sts:AssumeRole"
+                  },
+                      {
+                    "Effect": "Allow",
+                    "Principal": {
+                      "AWS": "arn:aws:iam::XXXXXXXXX:root"
+                    },
+                    "Action": "sts:AssumeRole"
+                  },
+                      {
+                    "Effect": "Allow",
+                    "Principal": {
+                      "AWS": "arn:aws:iam::XXXXXXXXX:root"
+                    },
+                    "Action": "sts:AssumeRole"
+                  },
+                      {
+                    "Effect": "Allow",
+                    "Principal": {
+                      "AWS": "arn:aws:iam::XXXXXXXXX:root"
+                    },
+                    "Action": "sts:AssumeRole"
+                  }
+                ]
+              },
+              "ManagedPolicyArns": [ "arn:aws:iam::aws:policy/AmazonEC2ReadOnlyAccess" ],
+              "RoleName": { "Ref": "FirstRoleName"}
+           }
+        },
+        "secondRole": {
+            "Type": "AWS::IAM::Role",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+               "AssumeRolePolicyDocument": {
+                 "Version": "2012-10-17",
+                 "Statement": [
+                   {
+                     "Effect": "Allow",
+                     "Principal": {
+                       "AWS": "arn:aws:iam::XXXXXXXXX:root"
+                     },
+                     "Action": "sts:AssumeRole"
+                   },
+                   {
+                     "Effect": "Allow",
+                     "Principal": {
+                       "AWS": "arn:aws:iam::XXXXXXXXX:root"
+                     },
+                     "Action": "sts:AssumeRole"
+                   },
+                       {
+                     "Effect": "Allow",
+                     "Principal": {
+                       "AWS": "arn:aws:iam::XXXXXXXXX:root"
+                     },
+                     "Action": "sts:AssumeRole"
+                   },
+                       {
+                     "Effect": "Allow",
+                     "Principal": {
+                       "AWS": "arn:aws:iam::XXXXXXXXX:root"
+                     },
+                     "Action": "sts:AssumeRole"
+                   },
+                       {
+                     "Effect": "Allow",
+                     "Principal": {
+                       "AWS": "arn:aws:iam::XXXXXXXXX:root"
+                     },
+                     "Action": "sts:AssumeRole"
+                   }
+                 ]
+               },
+               "ManagedPolicyArns": [ "arn:aws:iam::aws:policy/AmazonEC2ReadOnlyAccess" ],
+               "RoleName": { "Ref": "SecondRoleName"}
+            }
+        },
+        "thirdRole": {
+            "Type": "AWS::IAM::Role",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+               "AssumeRolePolicyDocument": {
+                 "Version": "2012-10-17",
+                 "Statement": [
+                   {
+                     "Effect": "Allow",
+                     "Principal": {
+                       "AWS": "arn:aws:iam::XXXXXXXXX:root"
+                     },
+                     "Action": "sts:AssumeRole"
+                   },
+                   {
+                     "Effect": "Allow",
+                     "Principal": {
+                       "AWS": "arn:aws:iam::XXXXXXXXX:root"
+                     },
+                     "Action": "sts:AssumeRole"
+                   },
+                       {
+                     "Effect": "Allow",
+                     "Principal": {
+                       "AWS": "arn:aws:iam::XXXXXXXXX:root"
+                     },
+                     "Action": "sts:AssumeRole"
+                   },
+                       {
+                     "Effect": "Allow",
+                     "Principal": {
+                       "AWS": "arn:aws:iam::XXXXXXXXX:root"
+                     },
+                     "Action": "sts:AssumeRole"
+                   },
+                       {
+                     "Effect": "Allow",
+                     "Principal": {
+                       "AWS": "arn:aws:iam::XXXXXXXXX:root"
+                     },
+                     "Action": "sts:AssumeRole"
+                   }
+                 ]
+               },
+               "ManagedPolicyArns": [ "arn:aws:iam::aws:policy/AmazonEC2ReadOnlyAccess" ],
+               "RoleName": { "Ref": "ThirdRoleName"}
+            }
+        }
+    }
+}
